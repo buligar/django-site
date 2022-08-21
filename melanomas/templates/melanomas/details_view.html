@@ -1,0 +1,17 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ article.title }}</h1>
+        <p>{{ article.data }}</p>
+        <p>{{ article.full_text}}</p>
+        <a href="{% url 'melanomas-delete' article.id %}" class="btn btn-danger">Удалить</a>
+        <a href="{% url 'melanomas-update' article.id %}" class="btn btn-info">Редактировать</a>
+        {% for b in data %}
+            <a href="{{ b.book.url }}">{{ b.title }}</a>
+            <img src="{{ b.cover.url }}">
+        {% endfor %}
+    </div>
+{% endblock %}
