@@ -6,8 +6,6 @@ class Articles(models.Model):
     anons = models.CharField('Анонс', max_length=250)
     full_text = models.TextField('Статья')
     data = models.DateTimeField('Дата публикации')
-    images = models.ImageField('Изображение')
-
     def __str__(self):
         return self.title
 

@@ -38,7 +38,9 @@ def create(request):
     error = ''
     if request.method == 'POST': #
         form = ArticlesForm(request.POST) # Получаем все данные который ввел пользователь
+        print(form.is_valid())
         if form.is_valid(): # Проверяем все данные
+            print("Валид")
             form.save() # Сохраняем в базе
             return redirect('melanomas_home')
         else:
