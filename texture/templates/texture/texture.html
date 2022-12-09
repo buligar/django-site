@@ -1,0 +1,27 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="features">
+  <p1>Здесь вы можете добавить таблицу</p1>
+  <h1>{{ title }}</h1>
+  <input type="file" name="readable" accept=".csv" />
+  <div id="preview"></div>
+  <script src="{% static 'main/js/texture.js' %}"></script>
+
+<!--  {% for b in data %}-->
+<!--  <a href="{{ b.book.url }}">{{ b.title }}</a>-->
+<!--  <img src="{{ b.cover.url }}">-->
+<!--  {% endfor %}-->
+
+<!--  &lt;!&ndash; Метод POST и установлен enctype &ndash;&gt;-->
+<!--  <form method="post" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--    &lt;!&ndash; myfile1 - переменная передающееся в Django &ndash;&gt;-->
+<!--    <input type="file" name="myfile1">-->
+<!--    <button type="submit">Загрузка</button>-->
+<!--  </form>-->
+<!--  <p>Ссылка: <a href="{{ file_url }}">{{ file_url }}</a></p>-->
+</div>
+{% endblock %}
