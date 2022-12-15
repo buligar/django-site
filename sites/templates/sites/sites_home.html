@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Изображения{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Изображения</h1>
+        {% if sites %}
+            {% for el in sites %}
+                <div class="alert alert-warning">
+                    <h3>{{ el.title }}</h3>
+                    <p>{{ el.anons }}</p>
+                    <img src="{{ el.cover.url }}"></p>
+                    <a href="{% url 'sites-detail' el.id%}" class="btn btn-info">Читать детальнее</a>
+                    <a href="{{ el.url }}" class="btn btn-warning">{{ el.url }}</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>У вас нет записей!</p>
+        {% endif %}
+    </div>
+{% endblock %}

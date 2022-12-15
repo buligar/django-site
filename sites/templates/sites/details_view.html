@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ article.title }}</h1>
+        <p>{{ article.data }}</p>
+        <ft>{{ article.full_text}}</ft>
+        <form method="get">
+            {% csrf_token %}
+            <p> {{ arcticle.cover }} </p>
+        </form>
+        <img src="{{ article.cover.url }}" ><br>
+        <a href="{% url 'sites-delete' article.id %}" class="btn btn-danger">Удалить</a>
+        <a href="{% url 'sites-update' article.id %}" class="btn btn-info">Редактировать</a>
+        {% for b in data %}
+            <a href="{{ b.book.url }}">{{ b.title }}</a>
+            <img src="{{ b.cover.url }}">
+        {% endfor %}
+    </div>
+{% endblock %}
